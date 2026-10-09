@@ -1,0 +1,14 @@
+# 本地文档链接检查配置（按需手动运行，不进 CI）
+max_concurrency = 8
+timeout = 20
+max_retries = 2
+retry_wait_time = 2
+
+# 本地开发端点、占位域名与模板表达式不是真实文档目标。
+exclude = [
+  "^https?://(localhost|127\\.0\\.0\\.1|\\[::1\\])(?::\\d+)?(?:/|$)",
+  "^https?://([A-Za-z0-9-]+\\.)?example\\.(com|org|net)(?:/|$)",
+  "^https?://your-[^/]+(?:/|$)",
+  "^https?://[^/]*\\{[^/]*\\}",
+  "^\\$\\{.*\\}$",
+]

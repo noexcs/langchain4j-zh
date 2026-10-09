@@ -1,0 +1,206 @@
+# LangChain4j 中文文档
+
+LangChain4j 是一个帮助你在 Java 中使用大型语言模型（LLM）的开源库，提供统一的 API 接入各大 LLM 提供商与向量存储，内置 AI 服务、工具调用、RAG、聊天记忆等能力。本文档为官方英文文档的简体中文翻译版。
+
+- [LangChain4j](/)
+- [简介](intro.html) — 欢迎！
+- [最新发布说明](latest-release-notes.html) — 最新的发布说明请参见[这里](https://github.com/langchain4j/langchain4j/releases)。
+- [入门指南](get-started.html) — LangChain4j 提供了与许多 [LLM 提供商](integrations/language-models/index.md)、 [嵌入/向量存储](integrations/embedding-stores/index.md) 等的集成。 每个集成都有自己的 Maven 依赖。
+## 教程
+
+- [教程](tutorials/)
+- [智能体与智能体 AI](tutorials/agents.html) — 虽然目前对 AI 智能体没有普遍公认的定义，但一些正在兴起的模式展示了如何协调和组合多个 AI 服务的能力，以创建能够完成更复杂任务的、融入了 AI 的应用。这些模式通常被称为"智能体系统"（agentic systems）或"智能体 AI"（agentic AI）。它们通常涉及使用大语言模型（LLM）来编排任务的执行…
+- [AI 服务](tutorials/ai-services.html) — 到目前为止，我们一直在介绍 `ChatModel`、`ChatMessage`、`ChatMemory` 等底层组件。 在这一层面编程非常灵活，可以完全自由发挥，但这也迫使你编写大量样板代码。 由于基于 LLM 的应用通常需要多个组件协同工作，而不仅仅是单个组件 （例如提示词模板、聊天记忆、LLM、输出解析器、RAG …
+- [聊天模型与语言模型](tutorials/chat-and-language-models.html) — LLM 目前有两种 API 类型： - `LanguageModel`。其 API 非常简单——接受 `String` 作为输入，返回 `String` 作为输出。 该 API 正逐渐过时，取而代之的是聊天 API（第二种 API 类型）。 - `ChatModel`。这些接受多个 `ChatMessage` 作为输入…
+- [聊天记忆](tutorials/chat-memory.html) — 手动维护和管理 `ChatMessage` 是一件繁琐的事情。 因此，LangChain4j 提供了 `ChatMemory` 抽象以及多个开箱即用的实现。
+- [分类](tutorials/classification.html) — 本文档介绍了一个使用 **LangChain4j** 在 Java 中实现的分类系统。分类对于将文本归类到预定义标签（例如**情感分析、意图检测**和**实体识别**）这一任务来说至关重要。
+- [可自定义的 HTTP 客户端](tutorials/customizable-http-client.html) — 部分 LangChain4j 模块（目前是 OpenAI 和 Ollama）支持自定义用于 调用 LLM 提供商 API 的 HTTP 客户端。
+- [决策模型](tutorials/decision-models.html) — 决策模型针对某个输入（状态）回答带有类型的问题，而不是生成文本。 你给它一个**输入**（状态），例如一张支持工单，以及一组命名的**问题**， 它会针对每个问题返回一个带类型的**答案**，并附带概率。
+- [Decision Services](tutorials/decision-services.html) — [Decision models](decision-models.md) 针对某个输入（状态）回答带类型的问题：是/否问题、 在多个选项中选择一个的问题，等等。 Decision Services 让你可以通过普通的 Java 接口使用它们： 你将想要了解的内容声明为方法，LangChain4j 为你实现该接口。
+- [嵌入（向量）存储](tutorials/embedding-stores.html) — 有关向量存储的文档可在[此处](rag.md#向量存储embedding-store)找到。
+- [护栏](tutorials/guardrails.html) — 护栏是一种机制，让你能够验证 LLM 的输入和输出，以确保它们符合你的预期。你可以使用护栏做以下一些事情： - 验证用户输入没有超出范围 - 确保输入在调用 LLM 之前满足某些条件（即防范[提示注入攻击](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)…
+- [Helidon 集成](tutorials/helidon-integration.html) — [Helidon](https://helidon.io/) 提供了一个 LangChain4j 集成模块，在利用 Helidon 编程模型和风格的同时， 简化了构建 AI 驱动型应用程序。
+- [图像模型](tutorials/image-models.html) — 更多资料即将推出
+- [使用 Jackson 3](tutorials/jackson-3.html) — LangChain4j 在很多地方都会读写 JSON：与 LLM 提供商交换的请求和响应、AI 服务解析的结构化输出、你持久化的聊天记忆，等等。默认情况下，它使用 [Jackson 2](https://github.com/FasterXML/jackson) 来完成这些工作。关于 LangChain4j 如何使用 …
+- [JSON 编解码器](tutorials/json.html) — LangChain4j 内置了一个 JSON 序列化器（默认使用 Jackson），供"工具"（tools）和"结构化输出"（structured output）功能使用。
+- [Kotlin 支持](tutorials/kotlin.html)
+- [日志](tutorials/logging.html) — LangChain4j 使用 [SLF4J](https://www.slf4j.org/) 进行日志记录， 允许你接入任何你喜欢的日志后端， 例如 [Logback](https://logback.qos.ch/) 或 [Log4j](https://logging.apache.org/log4j/2.x/ind…
+- [构建 Java MCP stdio 服务器](tutorials/mcp-stdio-server.html) — LangChain4j 提供了一个 MCP **客户端**（`langchain4j-mcp`），用于连接 MCP 服务器。 如果你想构建一个基于 Java 的 MCP **stdio 服务器**（由 MCP 客户端启动的本地子进程）， 请使用社区模块：`langchain4j-community-mcp-server…
+- [模型上下文协议（MCP）](tutorials/mcp.html) — LangChain4j 支持模型上下文协议（MCP），用于与能够提供并执行工具的 MCP 兼容服务器进行通信。关于该协议的一般信息 可以在 [MCP 网站](https://modelcontextprotocol.io/) 上找到。
+- [Micronaut 集成](tutorials/micronaut-integration.html) — [Micronaut](https://micronaut.io/) 为 LangChain4j 提供了 Micronaut 模块。
+- [模型参数](tutorials/model-parameters.html) — 根据你选择的模型和提供商，你可以调整大量参数来定义： - 模型的输出：生成内容（文本、图像）的创意程度或确定性、 生成的内容量等。 - 连接：基础 URL、授权密钥、超时、重试、日志记录等。
+- [模型路由](tutorials/model-routing.html) — 不同的请求需要不同的模型：问候或简短的事实类问题可以用小型、快速且低成本的模型来回答，而编写代码或 进行详细分析则需要更大的模型。借助模型路由，每个请求都会被发送到适合它的模型，而无需改动应用的其余部分。
+- [非阻塞与响应式](tutorials/non-blocking.html) — 默认情况下，调用 AI 服务会阻塞调用线程直到整个交互完成：LLM 调用、工具执行、聊天记忆访问和护栏都在方法返回之前发生。这种方式简单，对大多数应用来说效果很好。
+- [可观测性](tutorials/observability.html) — AI 服务的可观测性机制允许用户跟踪一次 `AiService` 调用期间发生的事情。一次调用可能涉及多次 LLM 调用，其中任何一次都可能成功或失败。AI 服务的可观测性允许用户跟踪完整的调用序列及其结果。
+- [Payara Micro 集成](tutorials/payara-micro-integration.html) — LangChain4j 可以无缝集成到 Payara Micro 应用程序中，利用 Jakarta EE 和 MicroProfile 的标准特性进行依赖注入和配置。
+- [Quarkus 集成](tutorials/quarkus-integration.html) — [Quarkus](https://quarkus.io/) 为 LangChain4j 提供了一个出色的[扩展](https://github.com/quarkiverse/quarkus-langchain4j)。
+- [RAG（检索增强生成）](tutorials/rag.html) — LLM 的知识仅限于其训练数据。 如果你想让 LLM 了解领域特定知识或专有数据，你可以： - 使用 RAG，我们将在本节中介绍 - 用你的数据对 LLM 进行微调
+- [响应流式传输](tutorials/response-streaming.html) — LLM 逐个 token 生成文本，因此许多 LLM 提供商提供了一种逐 token 流式传输响应 的方法，而不是等待整个文本生成完毕。 这显著改善了用户体验，因为用户无需等待未知的时间 即可几乎立即开始阅读响应。
+- [技能](tutorials/skills.html) — 技能（Skills）是一种为 LLM 配备可复用、自包含行为说明的机制。 一个技能捆绑了名称、简短描述和一段说明正文（即其 _内容_）， 以及可选的资源（例如参考资料、素材、模板等）。 LLM 会按需加载技能，从而保持初始上下文较小，仅在真正需要时 才拉入详细说明。
+- [Spring Boot 集成](tutorials/spring-boot-integration.html) — LangChain4j 为以下内容提供 [Spring Boot starters](https://github.com/langchain4j/langchain4j-spring)： - 主流集成 - 声明式 [AI 服务](ai-services.md)
+- [结构化输出](tutorials/structured-outputs.html) — 许多 LLM 和 LLM 提供商支持以结构化格式（通常是 JSON）生成输出。 这些输出可以轻松地映射为 Java 对象，并在应用程序的其他部分中使用。
+- [测试与评估](tutorials/testing-and-evaluation.html) — [这里](https://github.com/langchain4j/langchain4j-examples/blob/main/customer-support-agent-example/src/test/java/dev/langchain4j/example/CustomerSupportAgentIT.j…
+- [工具（函数调用）](tutorials/tools.html) — 一些 LLM 除了能生成文本外，还能触发动作。
+## 集成
+
+- [集成](integrations/)
+- [浏览器执行引擎](integrations/browser-execution-engines/)
+- [Playwright](integrations/browser-execution-engines/playwright.html) — `BrowserExecutionEngine` 表示一个浏览器执行引擎，可用于响应用户操作而在浏览器上执行操作。 `PlaywrightBrowserExecutionEngine` 是 `BrowserExecutionEngine` 的一个实现，它使用 <a href="https://playwright.de…
+- [所有受支持的聊天记忆存储对比表](integrations/chat-memory-stores/)
+- [Azure ACA Dynamic Sessions](integrations/code-execution-engines/azure-acads.html)
+- [GraalVM Polyglot/Truffle](integrations/code-execution-engines/graalvm-polyglot.html)
+- [代码执行引擎](integrations/code-execution-engines/)
+- [Judge0](integrations/code-execution-engines/judge0.html) — https://github.com/judge0/judge0
+- [本地](integrations/code-execution-engines/local.html) — `CommandLineExecutionEngine` 使用本地计算机环境来执行所提供的命令行代码。 它实现了两个工具：`CommandLineTool` 和 `LocalScriptExecutionTool`， 可用于 **桌面自动化** 或 **计算机使用** 智能体 （如文件管理、应用控制）。你可以使用自然语…
+- [决策模型](integrations/decision-models/)
+- [OpenAI](integrations/decision-models/open-ai.html) — OpenAI Decisions API（`POST /v1/decisions`）针对文本或图像输入回答是非题、选择题和量表题，并附带概率。它在两个模块中实现了 [`DecisionModel`](../../tutorials/decision-models.md) API：
+- [TypeSafe](integrations/decision-models/typesafe.html) — [TypeSafe](https://typesafe.ai) 通过其 System One API 提供决策模型（例如 Jev）。 `TypeSafeDecisionModel` 在其之上实现了 [`DecisionModel`](../../tutorials/decision-models.md) API。
+- [Amazon S3](integrations/document-loaders/amazon-s3.html)
+- [Azure Blob Storage](integrations/document-loaders/azure-blob-storage.html)
+- [类路径](integrations/document-loaders/classpath.html)
+- [文件系统](integrations/document-loaders/file-system.html)
+- [GitHub](integrations/document-loaders/github.html)
+- [Google Cloud Storage](integrations/document-loaders/google-cloud-storage.html) — 一个 Google Cloud Storage (GCS) 文档加载器，允许你从存储桶中加载文档。
+- [文档加载器](integrations/document-loaders/)
+- [Playwright](integrations/document-loaders/playwright.html)
+- [Selenium](integrations/document-loaders/selenium.html)
+- [Tencent COS](integrations/document-loaders/tencent-cos.html)
+- [URL](integrations/document-loaders/url.html)
+- [Apache PDFBox](integrations/document-parsers/apache-pdfbox.html)
+- [Apache POI](integrations/document-parsers/apache-poi.html)
+- [Apache Tika](integrations/document-parsers/apache-tika.html)
+- [Docling](integrations/document-parsers/docling.html) — [Docling](https://docling.ai) 是一个 IBM Research 文档处理引擎，可以从各种文档格式（包括 PDF、DOCX、PPTX 等）中提取文本和结构。它提供 OCR、表格提取和布局分析等高级功能。
+- [文档解析器](integrations/document-parsers/)
+- [Markdown](integrations/document-parsers/markdown.html)
+- [文本](integrations/document-parsers/text.html)
+- [YAML](integrations/document-parsers/yaml.html)
+- [进程内 (ONNX)](integrations/embedding-models/1-in-process.html) — LangChain4j 提供了一些流行的本地嵌入模型，已打包为 Maven 依赖。 它们由 [ONNX runtime](https://onnxruntime.ai/docs/get-started/with-java.html) 驱动， 并在同一个 Java 进程中运行。
+- [Amazon Bedrock](integrations/embedding-models/amazon-bedrock.html)
+- [Azure OpenAI](integrations/embedding-models/azure-open-ai.html) — Azure OpenAI 提供了一些嵌入模型（`text-embedding-3-small`、`text-embedding-ada-002` 等）， 可用于将文本或图像转换为维度向量空间。
+- [Cohere](integrations/embedding-models/cohere.html)
+- [DashScope](integrations/embedding-models/dashscope.html) — [DashScope](https://dashscope.aliyun.com/) 是由 [Alibaba Cloud](https://www.alibabacloud.com/) 开发的平台。 它提供了模型可视化、监控和调试的界面，特别是在生产环境中处理 AI/ML 模型时。该平台允许用户可视化性能指标、跟踪模型…
+- [Google AI Gemini 嵌入](integrations/embedding-models/google-ai-gemini.html) — https://ai.google.dev/gemini-api/docs/embeddings
+- [Google Gen AI 嵌入（实验性）](integrations/embedding-models/google-genai.html) — https://github.com/googleapis/java-genai
+- [Google Vertex AI](integrations/embedding-models/google-vertex-ai.html) — 开始之前，请按照[Vertex AI Gemini 集成教程](../language-models/google-vertex-ai-gemini.md)中 `Get started` 部分所述的步骤，创建一个 Google Cloud Platform 账户，并建立一个可访问 Vertex AI API 的新项目。
+- [Hugging Face](integrations/embedding-models/hugging-face.html) — - https://huggingface.co/docs/api-inference/index - https://huggingface.co/docs/api-inference/detailed_parameters#feature-extraction-task
+- [嵌入模型](integrations/embedding-models/)
+- [Jina](integrations/embedding-models/jina.html) — https://jina.ai/
+- [Jlama](integrations/embedding-models/jlama.html) — [Jlama 项目](https://github.com/tjake/Jlama)
+- [LocalAI](integrations/embedding-models/local-ai.html) — https://localai.io/
+- [Mistral AI](integrations/embedding-models/mistral-ai.html) — [MistralAI 文档](https://docs.mistral.ai/)
+- [Nomic](integrations/embedding-models/nomic.html) — https://home.nomic.ai/
+- [Ollama](integrations/embedding-models/ollama.html) — https://ollama.com/
+- [OpenAI Official SDK](integrations/embedding-models/open-ai-official.html) — 此集成使用 [OpenAI Java SDK GitHub 仓库](https://github.com/openai/openai-java)，适用于所有可由以下提供商提供的 OpenAI 模型：
+- [OpenAI](integrations/embedding-models/open-ai.html) — - https://platform.openai.com/docs/guides/embeddings - https://platform.openai.com/docs/api-reference/embeddings
+- [OVHcloud AI Endpoints](integrations/embedding-models/ovh-ai.html) — OVHcloud AI Endpoints 模型与 OpenAI API 兼容，因此你可以使用与 OpenAI 模型相同的代码，只需更改基础 URL 和 API 密钥。
+- [Qianfan](integrations/embedding-models/qianfan.html) — [百度智能云千帆大模型](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application) ![image](https://github.com/langchain4j/langchain4j/assets/952652…
+- [Voyage AI](integrations/embedding-models/voyage-ai.html)
+- [watsonx.ai](integrations/embedding-models/watsonx.html)
+- [Cloudflare Workers AI](integrations/embedding-models/workers-ai.html) — https://developers.cloudflare.com/workers-ai/
+- [Xinference](integrations/embedding-models/xinference.html) — - https://inference.readthedocs.io/
+- [Zhipu AI](integrations/embedding-models/zhipu-ai.html) — [ZhiPu AI](https://www.zhipuai.cn/) 是一个提供模型服务的平台，包括文本生成、文本嵌入、 图像生成等。有关更多详细信息，请参阅 [ZhiPu AI Open Platform](https://open.bigmodel.cn/)。 LangChain4j 通过使用 [HTTP 端点]…
+- [内存](integrations/embedding-stores/1-in-memory.html) — LangChain4j 提供了一个简单的 `EmbeddingStore` 接口的内存实现： `InMemoryEmbeddingStore`。 它适用于快速原型设计和简单用例。 它在内存中保存 `Embedding` 和相关的 `TextSegment`。 搜索也在内存中进行。 它还可以持久化，并可以从 JSON 字…
+- [Google AlloyDB for PostgreSQL](integrations/embedding-stores/alloydb.html) — [AlloyDB](https://cloud.google.com/alloydb) 是一个全托管的关系数据库服务，提供高性能、无缝集成和出色的可扩展性。AlloyDB 与 PostgreSQL 100% 兼容。扩展你的数据库应用，利用 AlloyDB 的 Langchain 集成来构建 AI 驱动的体验。
+- [Amazon S3 Vectors](integrations/embedding-stores/amazon-s3-vectors.html) — Amazon S3 Vectors 向量存储与 [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) 集成，这是 Amazon S3 中内置的专用向量存储功能，专为大规模存储和查询向量嵌入而设…
+- [ArcadeDB](integrations/embedding-stores/arcadedb.html) — https://arcadedb.com/
+- [Astra DB](integrations/embedding-stores/astra-db.html) — [Astra DB](https://www.datastax.com/products/datastax-astra)
+- [Azure AI Search](integrations/embedding-stores/azure-ai-search.html) — https://azure.microsoft.com/en-us/products/ai-services/ai-search/
+- [Azure CosmosDB Mongo vCore](integrations/embedding-stores/azure-cosmos-mongo-vcore.html) — https://azure.microsoft.com/en-us/products/cosmos-db/
+- [Azure CosmosDB NoSQL](integrations/embedding-stores/azure-cosmos-nosql.html) — https://azure.microsoft.com/en-us/products/cosmos-db/
+- [Cassandra](integrations/embedding-stores/cassandra.html) — [Cassandra](https://cassandra.apache.org/)
+- [Chroma](integrations/embedding-stores/chroma.html) — https://www.trychroma.com/
+- [ClickHouse](integrations/embedding-stores/clickhouse.html) — [ClickHouse](https://clickhouse.com/) 是用于实时应用和分析的最快且资源效率最高的开源 数据库，它完全支持 SQL，并提供丰富的函数来帮助用户编写分析查询。最近添加的 数据结构和距离搜索函数（如 cosineDistance）以及 [近似最近邻搜索索引](https://clickh…
+- [Google Cloud SQL for PostgreSQL](integrations/embedding-stores/cloud-sql.html) — [Cloud SQL](https://cloud.google.com/sql/docs/postgres) 是一个全托管的关系数据库服务，提供高性能、无缝集成和出色的可扩展性。Cloud SQL 与 PostgreSQL 100% 兼容。扩展你的数据库应用，利用 Cloud SQL 的 Langchain 集成来构…
+- [CockroachDB](integrations/embedding-stores/cockroachdb.html) — [CockroachDB](https://www.cockroachlabs.com/) 是一种分布式 SQL 数据库， 使用 PostgreSQL 线协议。自 v24.2 起，它原生提供 `VECTOR` 列类型；自 v25.2 起，它提供了一个名为 **C-SPANN** 的分布式近似最近邻 索引。`langch…
+- [Oracle Coherence](integrations/embedding-stores/coherence.html) — https://coherence.community/
+- [Couchbase](integrations/embedding-stores/couchbase.html) — https://www.couchbase.com/
+- [DuckDB](integrations/embedding-stores/duckdb.html) — https://duckdb.org/
+- [Elasticsearch](integrations/embedding-stores/elasticsearch.html) — https://www.elastic.co/
+- [Hazelcast](integrations/embedding-stores/hazelcast.html) — [Hazelcast](https://hazelcast.com/) 是一个分布式内存数据网格和计算平台。 LangChain4j 通过两个模块与 Hazelcast 集成，拆分的方式使开源路径 不依赖任何企业版/许可要求：
+- [Hibernate](integrations/embedding-stores/hibernate.html) — LangChain4j 与 [Hibernate](https://github.com/hibernate/hibernate-orm) 无缝集成，使开发人员能够直接在 Hibernate 支持的所有数据库中存储和查询向量嵌入。该集成非常适合语义搜索、RAG 等应用。
+- [所有受支持的向量存储对比表](integrations/embedding-stores/)
+- [Infinispan](integrations/embedding-stores/infinispan.html) — Infinispan 是一个开源（Apache 2 许可）的内存键值数据库和缓存，几乎可以存储任何类型的数据，从纯文本 到结构化对象，专为高性能、可扩展性和低延迟数据访问而设计。 它支持嵌入式和客户端-服务器两种模式，应用程序既可以将其用作本地缓存， 也可以将其用作远程服务器数据库。
+- [JVector](integrations/embedding-stores/jvector.html) — https://github.com/jbellis/jvector
+- [Mariadb Vector](integrations/embedding-stores/mariadb.html) — https://mariadb.com/kb/en/vector-overview
+- [Milvus](integrations/embedding-stores/milvus.html) — [Milvus](https://milvus.io/) 是一个开源向量数据库。LangChain4j 可以将其用作 `EmbeddingStore`，以持久化嵌入并对其进行相似性搜索。
+- [MongoDB Atlas](integrations/embedding-stores/mongodb-atlas.html) — [MongoDB Atlas](https://www.mongodb.com/docs/atlas/) 是一个全托管的 云数据库，可在 AWS、Azure 和 GCP 上使用。它支持对 MongoDB 文档数据原生进行向量搜索和全文搜索（BM25 算法）。
+- [Neo4j](integrations/embedding-stores/neo4j.html) — [Neo4j](https://neo4j.com/) 是一个高性能的开源图数据库，专为管理相互关联的数据而设计。 Neo4j 的原生图模型非常适合对复杂且高度互联的领域进行建模，例如社交图谱、推荐系统和知识网络。 通过其在 LangChain4j 中的集成，可以在 Langchain4j 库中使用 [Neo4j Ve…
+- [OceanBase](integrations/embedding-stores/oceanbase.html) — OceanBase 向量存储与 [OceanBase](https://www.oceanbase.com/) 数据库集成，提供向量相似性搜索和混合搜索能力。
+- [OpenSearch](integrations/embedding-stores/opensearch.html) — https://opensearch.org/
+- [Oracle](integrations/embedding-stores/oracle.html) — Oracle 向量存储与 Oracle Database 的 [AI Vector Search 特性](https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/overview-ai-vector-search.html) 集成。
+- [PGVector](integrations/embedding-stores/pgvector.html) — LangChain4j 与 [PGVector](https://github.com/pgvector/pgvector) 无缝集成，使开发人员能够直接在 PostgreSQL 中存储和查询向量嵌入。该集成非常适合语义搜索、RAG 等应用。
+- [Pinecone](integrations/embedding-stores/pinecone.html) — https://www.pinecone.io/
+- [Qdrant](integrations/embedding-stores/qdrant.html) — https://qdrant.tech/
+- [Redis](integrations/embedding-stores/redis.html) — https://redis.io/
+- [SQL Server](integrations/embedding-stores/sqlserver.html) — SQL Server 嵌入存储与 SQL Server 2025 中引入的[向量搜索和向量索引](https://learn.microsoft.com/en-us/sql/sql-server/ai/vectors?view=sql-server-ver17)集成。
+- [Tablestore](integrations/embedding-stores/tablestore.html) — https://www.aliyun.com/product/ots
+- [Valkey](integrations/embedding-stores/valkey.html) — https://valkey.io/
+- [Vearch](integrations/embedding-stores/vearch.html) — https://github.com/vearch/vearch
+- [Vespa](integrations/embedding-stores/vespa.html) — https://vespa.ai/
+- [Weaviate](integrations/embedding-stores/weaviate.html) — https://weaviate.io/
+- [YugabyteDB](integrations/embedding-stores/yugabytedb.html) — [YugabyteDB](https://www.yugabyte.com/) 是一个分布式 SQL 数据库，提供 PostgreSQL 兼容性，并支持跨多个区域的水平扩展和高可用。YugabyteDB 通过 `pgvector` 扩展提供的原生向量搜索能力，使其成为在分布式环境中存储和查询向量嵌入的极佳选择。
+- [LangChain4J CDI](integrations/frameworks/cdi.html) — [LangChain4J CDI](https://github.com/langchain4j/langchain4j-cdi) 可以将 AI 服务直接注入到你的 Jakarta EE 和 MicroProfile 应用中。
+- [Helidon](integrations/frameworks/helidon.html) — [Helidon](https://helidon.io/) 提供了 LangChain4j 集成模块，在沿用 Helidon 编程模型和风格的同时，简化 AI 驱动应用的构建。
+- [框架](integrations/frameworks/)
+- [Micronaut](integrations/frameworks/micronaut.html) — [Micronaut](https://micronaut.io/) 提供了 LangChain4j 集成模块，为 LangChain4j API 提供配置管理和依赖注入。
+- [Quarkus](integrations/frameworks/quarkus.html) — Quarkus [LangChain4j 扩展](https://quarkus.io/extensions/io.quarkiverse.langchain4j/quarkus-langchain4j-core/)与 Quarkus 编程模型以及现有的 Quarkus 运行时组件无缝集成。
+- [Spring Boot](integrations/frameworks/spring-boot.html) — 有关 Spring Boot 集成的文档，请参见[这里](../../tutorials/spring-boot-integration.md)。
+- [Azure OpenAI Dall·E](integrations/image-models/azure-dall-e.html) — Azure OpenAI 提供了一些图像模型（`dall-e-3` 等），可用于各种图像处理任务。
+- [OpenAI 图像模型](integrations/image-models/dall-e.html)
+- [Google AI Gemini 图像生成](integrations/image-models/gemini.html) — Gemini 可以使用专门的图像模型以对话方式生成和编辑图像，即 **Nano Banana**（Gemini 2.5 Flash Image）和 **Nano Banana Pro**（Gemini 3 Pro Image Preview）。
+- [Google Imagen](integrations/image-models/imagen.html) — [一篇关于使用 Imagen 进行图像生成的文章](https://glaforge.dev/posts/2024/02/01/image-generation-with-imagen-and-langchain4j/)
+- [图像模型](integrations/image-models/)
+- [Ollama 图像生成](integrations/image-models/ollama.html)
+- [OpenAI Official SDK](integrations/image-models/open-ai-official.html) — 此集成使用 [OpenAI Java SDK GitHub 仓库](https://github.com/openai/openai-java)，将适用于所有可由以下提供的 OpenAI 模型：
+- [watsonx.ai](integrations/image-models/watsonx.html)
+- [Cloudflare Workers AI](integrations/image-models/workers-ai.html) — https://developers.cloudflare.com/workers-ai/
+- [Xinference](integrations/image-models/xinference.html) — - https://inference.readthedocs.io/
+- [ZhiPu AI](integrations/image-models/zhipu-ai.html) — [ZhiPu AI](https://www.zhipuai.cn/) 是一个提供模型服务的平台，包括文本生成、文本嵌入、 图像生成等。有关更多详细信息，请参阅 [ZhiPu AI Open Platform](https://open.bigmodel.cn/)。 LangChain4j 通过使用 [HTTP 端点]…
+- [Amazon Bedrock](integrations/language-models/amazon-bedrock.html)
+- [Anthropic](integrations/language-models/anthropic.html)
+- [Azure OpenAI](integrations/language-models/azure-open-ai.html) — Azure OpenAI 提供托管在 Azure 上的 OpenAI 语言模型（`gpt-4`、`gpt-4o` 等），使用 [Azure OpenAI Java SDK](https://learn.microsoft.com/en-us/java/api/overview/azure/ai-openai-readm…
+- [ChatGLM](integrations/language-models/chatglm.html) — https://github.com/THUDM/ChatGLM-6B
+- [Cohere](integrations/language-models/cohere.html) — `1.0.0-alpha1` 及更高版本：
+- [DashScope (Qwen)](integrations/language-models/dashscope.html) — [DashScope](https://dashscope.aliyun.com/) 是由 [Alibaba Cloud](https://www.alibabacloud.com/) 开发的平台。 它为模型可视化、监控和调试提供了接口，特别是在生产环境中处理 AI/ML 模型时。该平台允许用户可视化性能指标、跟踪模型…
+- [Google AI Gemini](integrations/language-models/google-ai-gemini.html) — https://ai.google.dev/gemini-api/docs
+- [Google Gen AI（实验性）](integrations/language-models/google-genai.html) — https://github.com/googleapis/java-genai
+- [Google Vertex AI Anthropic](integrations/language-models/google-vertex-ai-anthropic.html) — Google Vertex AI 提供对 Anthropic 的 Claude 模型的访问，通过 Google Cloud Platform 实现。此集成允许你在利用 Google Cloud 的基础设施和安全特性的同时，使用 Claude 先进的语言能力。
+- [Google Vertex AI Gemini](integrations/language-models/google-vertex-ai-gemini.html) — Vertex AI 是 Google Cloud 的全托管 AI 开发平台，提供对 Google 大型生成式模型的访问，包括上一代（PaLM2）和新一代（Gemini）。
+- [GPULlama3.java](integrations/language-models/gpullama3-java.html) — [GPULlama3.java](https://github.com/beehive-lab/GPULlama3.java)
+- [Hugging Face](integrations/language-models/hugging-face.html) — 要使用 [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/index)， 你需要导入 `langchain4j-open-ai` 模块，因为 Hugging Face Inference Provider…
+- [所有受支持的语言模型对比表](integrations/language-models/)
+- [jitLLM](integrations/language-models/jitllm.html) — [jitLLM](https://github.com/beehive-lab/jitllm) 在 JVM 内运行 GGUF 格式的 LLM。它通过 [TornadoVM](https://github.com/beehive-lab/TornadoVM) 在 GPU 上运行这些模型，TornadoVM 会针对 CUD…
+- [Jlama](integrations/language-models/jlama.html) — [Jlama 项目](https://github.com/tjake/Jlama)
+- [LocalAI](integrations/language-models/local-ai.html) — https://localai.io/
+- [MistralAI](integrations/language-models/mistral-ai.html) — [MistralAI 文档](https://docs.mistral.ai/)
+- [Oracle Cloud Infrastructure GenAI](integrations/language-models/oci-genai.html) — [Generative AI Service](https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service) 提供了来自 Cohere 和 Meta 的预训练基础模型。 AI 模型的可用性参见[此处](https:…
+- [Ollama](integrations/language-models/ollama.html) — Ollama 是一款先进的 AI 工具，让用户能够轻松地在本地（CPU 和 GPU 模式）设置并运行大型语言模型。 借助 Ollama，用户可以利用 Llama 2 等强大的语言模型，甚至可以自定义和创建自己的模型。Ollama 将模型权重、 配置和数据打包为一个由 Modelfile 定义的单一软件包。它会优化包括 …
+- [OpenAI 官方 SDK](integrations/language-models/open-ai-official.html) — 此集成使用 [OpenAI Java SDK GitHub 仓库](https://github.com/openai/openai-java)，将适用于所有可由以下渠道提供的 OpenAI 模型：
+- [OpenAI](integrations/language-models/open-ai.html)
+- [OpenAI 兼容语言模型](integrations/language-models/openai-compatible.html) — 许多服务和工具都暴露了 OpenAI 兼容的 API。使用它们与 LangChain4j 集成的通用方法是：
+- [Qianfan](integrations/language-models/qianfan.html) — [百度智能云千帆大模型](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application) ![image](https://github.com/langchain4j/langchain4j/assets/952652…
+- [watsonx.ai](integrations/language-models/watsonx.html) — 本集成构建于 **IBM watsonx.ai Java SDK** 之上。下面描述的每个模型都封装了其一个服务。当你需要了解与 LangChain4j 无关的行为细节——token 缓存、重试、HTTP 客户端调优——时，请参照 [SDK 文档](https://ibm.github.io/watsonx-ai-ja…
+- [Cloudflare Workers AI](integrations/language-models/workers-ai.html) — https://developers.cloudflare.com/workers-ai/
+- [Xinference](integrations/language-models/xinference.html) — - https://inference.readthedocs.io/
+- [ZhiPu AI](integrations/language-models/zhipu-ai.html) — [ZhiPu AI](https://www.zhipuai.cn/) 是一个提供模型服务的平台，包括文本生成、文本嵌入、 图像生成等。更多详细信息请参阅 [ZhiPu AI 开放平台](https://open.bigmodel.cn/)。 LangChain4j 通过使用 [HTTP 端点](https://big…
+- [模型路由](integrations/model-router/)
+- [模型路由器](integrations/model-router/model-router.html) — 这是 `ModelRouter` 的文档，它作为发往多个 ChatModel 实例的消息的路由器，并使用可插拔的 RoutingStrategy。 该模块自带两个默认实现：FailoverStrategy 和 LowestTokenUsageRoutingStrategy。
+- [提示词重复](integrations/prompt-repetition/)
+- [提示词重复](integrations/prompt-repetition/prompt-repetition.html) — `langchain4j-community-prompt-repetition` 是一个可选的社区模块，为 LangChain4j 的两个集成点提供现成的提示词重复集成：
+- [Cohere](integrations/scoring-reranking-models/cohere.html)
+- [进程内（ONNX）](integrations/scoring-reranking-models/in-process.html) — LangChain4j 提供本地评分（重排）模型， 由 [ONNX runtime](https://onnxruntime.ai/docs/get-started/with-java.html) 提供支持，运行在同一个 Java 进程中。
+- [评分（重排）模型](integrations/scoring-reranking-models/)
+- [Jina](integrations/scoring-reranking-models/jina-ai.html) — 重排模型（reranker）是一种先进的 AI 模型，它接收来自搜索的初始结果集（通常由嵌入/基于 token 的搜索提供），并对其进行重新评估，以确保结果更贴合用户的意图。 它不局限于词汇层面的表面匹配，而是深入考量搜索查询与文档内容之间的深层交互。
+- [Google Cloud Vertex AI Ranking API](integrations/scoring-reranking-models/vertex-ai.html) — Google Cloud Vertex AI Ranking API 是一款强大的工具，它通过优化检索文档与给定查询的相关性来提升搜索结果。 与传统搜索方法不同，它利用先进的机器学习算法来理解查询和文档双方的语义上下文，从而提供更精确、更相关的结果。 通过分析查询与每篇文档之间的语义关系，该 API 可以根据计算出的相…
+- [Voyage AI](integrations/scoring-reranking-models/voyage-ai.html)
+- [watsonx.ai](integrations/scoring-reranking-models/watsonx.html)
+- [Xinference](integrations/scoring-reranking-models/xinference.html) — - https://inference.readthedocs.io/
+- [DuckDuckGo](integrations/web-search-engines/duckduckgo.html) — https://duckduckgo.com/
+- [Google Custom Search](integrations/web-search-engines/google-custom-search.html) — https://programmablesearchengine.google.com/
+- [网页搜索引擎](integrations/web-search-engines/)
+- [SearchApi](integrations/web-search-engines/searchapi.html) — [SearchApi](https://www.searchapi.io/) 是一个实时 SERP API。你可以使用它在 Google、Google News、Bing、Bing News、百度、Google Scholar 或任何其他返回自然结果的引擎中执行搜索。
+- [SearXNG](integrations/web-search-engines/searxng.html) — https://github.com/searxng/searxng
+- [Tavily](integrations/web-search-engines/tavily.html) — https://tavily.com/
+## 实用资料
+
+- [学习资料](useful-materials/)

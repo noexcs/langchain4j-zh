@@ -1,0 +1,23 @@
+# Hugging Face
+
+- https://huggingface.co/docs/api-inference/index
+- https://huggingface.co/docs/api-inference/detailed_parameters#feature-extraction-task
+
+## Maven 依赖
+
+```xml
+<dependency>
+    <groupId>dev.langchain4j</groupId>
+    <artifactId>langchain4j-hugging-face</artifactId>
+    <version>1.22.0-beta32</version>
+</dependency>
+```
+
+## API
+
+- `HuggingFaceEmbeddingModel`
+
+
+## 示例
+
+- [HuggingFaceEmbeddingModelExample](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/embedding/model/HuggingFaceEmbeddingModelExample.java)

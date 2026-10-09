@@ -1,0 +1,294 @@
+site_name: LangChain4j 中文文档
+site_description: LangChain4j 是一个让 Java 应用程序使用 LLM 的开源 Java 框架，提供统一的 API 接入各大 LLM 提供商与向量存储，内置 AI 服务、智能体、工具调用与 RAG 能力。本文档为官方英文文档（docs.langchain4j.dev）的简体中文翻译版。
+repo_url: https://github.com/noexcs/langchain4j-zh
+site_url: https://noexcs.github.io/langchain4j-zh/
+edit_uri: ''
+use_directory_urls: false
+docs_dir: docs-zh
+site_dir: site-zh
+strict: false
+
+nav:
+  - 首页: index.md
+  - 简介: intro.md
+  - 快速开始: get-started.md
+  - 教程:
+    - 教程总览: tutorials/index.md
+    - 聊天与语言模型: tutorials/chat-and-language-models.md
+    - 聊天记忆: tutorials/chat-memory.md
+    - 模型参数: tutorials/model-parameters.md
+    - 响应流式处理: tutorials/response-streaming.md
+    - AI 服务: tutorials/ai-services.md
+    - 智能体与 Agentic AI: tutorials/agents.md
+    - 工具（函数调用）: tutorials/tools.md
+    - RAG（检索增强生成）: tutorials/rag.md
+    - 结构化输出: tutorials/structured-outputs.md
+    - 护栏: tutorials/guardrails.md
+    - 分类: tutorials/classification.md
+    - 嵌入（向量）存储: tutorials/embedding-stores.md
+    - 构建 Java MCP stdio 服务器: tutorials/mcp-stdio-server.md
+    - 图像模型: tutorials/image-models.md
+    - Micronaut 集成: tutorials/micronaut-integration.md
+    - Quarkus 集成: tutorials/quarkus-integration.md
+    - Spring Boot 集成: tutorials/spring-boot-integration.md
+    - Helidon 集成: tutorials/helidon-integration.md
+    - Kotlin 支持: tutorials/kotlin.md
+    - 日志: tutorials/logging.md
+    - JSON 编解码器: tutorials/json.md
+    - 可观测性: tutorials/observability.md
+    - 技能: tutorials/skills.md
+    - 可定制 HTTP 客户端: tutorials/customizable-http-client.md
+    - 测试与评估: tutorials/testing-and-evaluation.md
+    - Payara Micro 集成: tutorials/payara-micro-integration.md
+    - 非阻塞与响应式: tutorials/non-blocking.md
+    - 使用 Jackson 3: tutorials/jackson-3.md
+    - 决策服务: tutorials/decision-services.md
+    - 决策模型: tutorials/decision-models.md
+    - 模型路由: tutorials/model-routing.md
+    - 模型上下文协议（MCP）: tutorials/mcp.md
+  - 集成:
+    - 集成总览: integrations/index.md
+    - 语言模型:
+      - integrations/language-models/index.md
+      - integrations/language-models/amazon-bedrock.md
+      - integrations/language-models/anthropic.md
+      - integrations/language-models/azure-open-ai.md
+      - integrations/language-models/chatglm.md
+      - integrations/language-models/dashscope.md
+      - integrations/language-models/google-ai-gemini.md
+      - integrations/language-models/google-genai.md
+      - integrations/language-models/google-vertex-ai-gemini.md
+      - integrations/language-models/google-vertex-ai-anthropic.md
+      - integrations/language-models/hugging-face.md
+      - integrations/language-models/jlama.md
+      - integrations/language-models/local-ai.md
+      - integrations/language-models/mistral-ai.md
+      - integrations/language-models/ollama.md
+      - integrations/language-models/open-ai.md
+      - integrations/language-models/open-ai-official.md
+      - integrations/language-models/openai-compatible.md
+      - integrations/language-models/qianfan.md
+      - integrations/language-models/workers-ai.md
+      - integrations/language-models/zhipu-ai.md
+      - integrations/language-models/oci-genai.md
+      - integrations/language-models/xinference.md
+      - integrations/language-models/gpullama3-java.md
+      - integrations/language-models/watsonx.md
+      - integrations/language-models/cohere.md
+      - integrations/language-models/jitllm.md
+    - 嵌入模型:
+      - integrations/embedding-models/index.md
+      - integrations/embedding-models/1-in-process.md
+      - integrations/embedding-models/amazon-bedrock.md
+      - integrations/embedding-models/azure-open-ai.md
+      - integrations/embedding-models/cohere.md
+      - integrations/embedding-models/dashscope.md
+      - integrations/embedding-models/google-vertex-ai.md
+      - integrations/embedding-models/hugging-face.md
+      - integrations/embedding-models/jina.md
+      - integrations/embedding-models/jlama.md
+      - integrations/embedding-models/local-ai.md
+      - integrations/embedding-models/mistral-ai.md
+      - integrations/embedding-models/nomic.md
+      - integrations/embedding-models/ollama.md
+      - integrations/embedding-models/open-ai.md
+      - integrations/embedding-models/open-ai-official.md
+      - integrations/embedding-models/ovh-ai.md
+      - integrations/embedding-models/qianfan.md
+      - integrations/embedding-models/voyage-ai.md
+      - integrations/embedding-models/workers-ai.md
+      - integrations/embedding-models/zhipu-ai.md
+      - integrations/embedding-models/xinference.md
+      - integrations/embedding-models/watsonx.md
+      - integrations/embedding-models/google-ai-gemini.md
+      - integrations/embedding-models/google-genai.md
+    - 向量存储:
+      - integrations/embedding-stores/index.md
+      - integrations/embedding-stores/1-in-memory.md
+      - integrations/embedding-stores/astra-db.md
+      - integrations/embedding-stores/azure-ai-search.md
+      - integrations/embedding-stores/azure-cosmos-mongo-vcore.md
+      - integrations/embedding-stores/azure-cosmos-nosql.md
+      - integrations/embedding-stores/cassandra.md
+      - integrations/embedding-stores/chroma.md
+      - integrations/embedding-stores/clickhouse.md
+      - integrations/embedding-stores/coherence.md
+      - integrations/embedding-stores/couchbase.md
+      - integrations/embedding-stores/duckdb.md
+      - integrations/embedding-stores/elasticsearch.md
+      - integrations/embedding-stores/infinispan.md
+      - integrations/embedding-stores/milvus.md
+      - integrations/embedding-stores/mongodb-atlas.md
+      - integrations/embedding-stores/neo4j.md
+      - integrations/embedding-stores/opensearch.md
+      - integrations/embedding-stores/mariadb.md
+      - integrations/embedding-stores/oracle.md
+      - integrations/embedding-stores/hibernate.md
+      - integrations/embedding-stores/pgvector.md
+      - integrations/embedding-stores/pinecone.md
+      - integrations/embedding-stores/qdrant.md
+      - integrations/embedding-stores/redis.md
+      - integrations/embedding-stores/sqlserver.md
+      - integrations/embedding-stores/tablestore.md
+      - integrations/embedding-stores/vearch.md
+      - integrations/embedding-stores/yugabytedb.md
+      - integrations/embedding-stores/vespa.md
+      - integrations/embedding-stores/weaviate.md
+      - integrations/embedding-stores/oceanbase.md
+      - integrations/embedding-stores/amazon-s3-vectors.md
+      - integrations/embedding-stores/arcadedb.md
+      - integrations/embedding-stores/valkey.md
+      - integrations/embedding-stores/jvector.md
+      - integrations/embedding-stores/cockroachdb.md
+      - integrations/embedding-stores/hazelcast.md
+      - integrations/embedding-stores/alloydb.md
+      - integrations/embedding-stores/cloud-sql.md
+    - 聊天记忆存储:
+      - integrations/chat-memory-stores/index.md
+    - 图像模型:
+      - integrations/image-models/index.md
+      - integrations/image-models/azure-dall-e.md
+      - integrations/image-models/dall-e.md
+      - integrations/image-models/gemini.md
+      - integrations/image-models/imagen.md
+      - integrations/image-models/open-ai-official.md
+      - integrations/image-models/workers-ai.md
+      - integrations/image-models/xinference.md
+      - integrations/image-models/zhipu-ai.md
+      - integrations/image-models/ollama.md
+      - integrations/image-models/watsonx.md
+    - 文档加载器:
+      - integrations/document-loaders/index.md
+      - integrations/document-loaders/amazon-s3.md
+      - integrations/document-loaders/azure-blob-storage.md
+      - integrations/document-loaders/google-cloud-storage.md
+      - integrations/document-loaders/classpath.md
+      - integrations/document-loaders/file-system.md
+      - integrations/document-loaders/github.md
+      - integrations/document-loaders/playwright.md
+      - integrations/document-loaders/selenium.md
+      - integrations/document-loaders/tencent-cos.md
+      - integrations/document-loaders/url.md
+    - 文档解析器:
+      - integrations/document-parsers/index.md
+      - integrations/document-parsers/text.md
+      - integrations/document-parsers/apache-tika.md
+      - integrations/document-parsers/apache-poi.md
+      - integrations/document-parsers/apache-pdfbox.md
+      - integrations/document-parsers/markdown.md
+      - integrations/document-parsers/yaml.md
+      - integrations/document-parsers/docling.md
+    - 评分（重排）模型:
+      - integrations/scoring-reranking-models/index.md
+      - integrations/scoring-reranking-models/in-process.md
+      - integrations/scoring-reranking-models/cohere.md
+      - integrations/scoring-reranking-models/jina-ai.md
+      - integrations/scoring-reranking-models/vertex-ai.md
+      - integrations/scoring-reranking-models/voyage-ai.md
+      - integrations/scoring-reranking-models/xinference.md
+      - integrations/scoring-reranking-models/watsonx.md
+    - 决策模型:
+      - integrations/decision-models/index.md
+      - integrations/decision-models/typesafe.md
+      - integrations/decision-models/open-ai.md
+    - 代码执行引擎:
+      - integrations/code-execution-engines/index.md
+      - integrations/code-execution-engines/azure-acads.md
+      - integrations/code-execution-engines/graalvm-polyglot.md
+      - integrations/code-execution-engines/judge0.md
+      - integrations/code-execution-engines/local.md
+    - 框架:
+      - integrations/frameworks/index.md
+      - integrations/frameworks/quarkus.md
+      - integrations/frameworks/spring-boot.md
+      - integrations/frameworks/cdi.md
+      - integrations/frameworks/helidon.md
+      - integrations/frameworks/micronaut.md
+    - 网页搜索引擎:
+      - integrations/web-search-engines/index.md
+      - integrations/web-search-engines/google-custom-search.md
+      - integrations/web-search-engines/searchapi.md
+      - integrations/web-search-engines/searxng.md
+      - integrations/web-search-engines/tavily.md
+      - integrations/web-search-engines/duckduckgo.md
+    - 浏览器执行引擎:
+      - integrations/browser-execution-engines/index.md
+      - integrations/browser-execution-engines/playwright.md
+    - 模型路由:
+      - integrations/model-router/index.md
+      - integrations/model-router/model-router.md
+    - 提示词重复:
+      - integrations/prompt-repetition/index.md
+      - integrations/prompt-repetition/prompt-repetition.md
+  - 实用资料: useful-materials/index.md
+  - 最新 Release Notes: latest-release-notes.md
+
+theme:
+  name: material
+  language: zh
+  logo: img/logo.svg
+  font: false
+  palette:
+    - scheme: default
+      primary: custom
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: custom
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - search.highlight
+    - search.suggest
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/langchain4j/langchain4j
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/langchain4j
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/invite/JzTFvyjG6R
+    - icon: fontawesome/brands/stack-overflow
+      link: https://stackoverflow.com/questions/tagged/langchain4j
+
+extra_css:
+  - css/custom.css
+
+plugins:
+  - search:
+      lang: zh
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      slugify: !!python/name:markdown.extensions.toc.slugify_unicode
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+
+copyright: LangChain4j 官方文档（简体中文翻译版） · 原站 https://docs.langchain4j.dev

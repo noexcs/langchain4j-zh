@@ -1,0 +1,23 @@
+# Judge0
+
+https://github.com/judge0/judge0
+
+## Maven 依赖
+
+```xml
+<dependency>
+    <groupId>dev.langchain4j</groupId>
+    <artifactId>langchain4j-code-execution-engine-judge0</artifactId>
+    <version>1.22.0-beta32</version>
+</dependency>
+```
+
+## API
+
+- `Judge0JavaScriptEngine`
+- `Judge0JavaScriptExecutionTool`
+
+
+## 示例
+
+- [ServiceWithDynamicToolsExample](https://github.com/langchain4j/langchain4j-examples/blob/main/other-examples/src/main/java/ServiceWithDynamicToolsExample.java)

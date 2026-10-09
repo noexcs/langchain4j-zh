@@ -1,0 +1,39 @@
+/* LangChain4j 中文文档 —— 贴近原站（Docusaurus 经典主题，主色 #2e8555）的 Material 定制 */
+
+:root {
+  --md-primary-fg-color: #2e8555;
+  --md-primary-fg-color--light: #33925d;
+  --md-primary-fg-color--dark: #29784c;
+  --md-primary-fg-color--transparent: rgba(46, 133, 85, 0.1);
+  --md-typeset-a-color: #2e8555;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #25c2a0;
+  --md-primary-fg-color--light: #29d5b0;
+  --md-primary-fg-color--dark: #21af90;
+  --md-primary-fg-color--transparent: rgba(37, 194, 160, 0.1);
+  --md-typeset-a-color: #25c2a0;
+}
+
+/* Docusaurus 默认代码字号 95% */
+.md-typeset code {
+  font-size: 95%;
+}
+
+/* 原站 H1 为 2rem */
+.md-typeset h1 {
+  font-size: 2rem;
+}
+
+/* 代码块行号锚点与滚动补偿 */
+.md-typeset .codehilite pre,
+.md-typeset pre {
+  line-height: 1.4;
+}
+
+/* 原站页脚为深色，Material 默认页脚已是深色，仅收紧间距 */
+.md-footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

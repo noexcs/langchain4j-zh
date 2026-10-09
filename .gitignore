@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 本地构建产物（CI 重新构建后部署到 GitHub Pages）
+site-zh/
+
+# macOS / 编辑器
+.DS_Store
