@@ -3,12 +3,17 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-PY="${PYTHON:-.venv/bin/python}"
-if [ ! -x "$PY" ]; then
-  echo "未找到 .venv，先执行: uv venv .venv && uv pip install --python .venv/bin/python -r requirements.txt" >&2
-  exit 1
+PY="${PYTHON:-}"
+if [ -z "$PY" ]; then
+  if [ -x ".venv/bin/python" ]; then
+    PY=".venv/bin/python"
+  elif command -v python3 >/dev/null 2>&1; then
+    PY="python3"
+  else
+    echo "未找到 python3" >&2
+    exit 1
+  fi
 fi
-
 # 1. 生成 LLM 上下文文件（llms.txt / llms-full.txt / robots.txt）
 "$PY" scripts/generate-llm-context-zh.py
 
