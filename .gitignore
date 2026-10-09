@@ -9,3 +9,7 @@ site-zh/
 
 # macOS / 编辑器
 .DS_Store
+
+# 本地 venv（符号链接/目录均排除）
+.venv
+.venv/
